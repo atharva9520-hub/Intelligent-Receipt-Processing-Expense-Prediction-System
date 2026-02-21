@@ -1,4 +1,4 @@
-# 🧾 Intelligent Receipt Processing & Expense Prediction System
+#  Intelligent Receipt Processing & Expense Prediction System
 
 An end-to-end Machine Learning and Data Engineering pipeline that ingests raw receipt images, extracts key financial data using OCR and NLP, categorizes expenses, and forecasts future spending using time-series analysis.
 
