@@ -6,7 +6,7 @@ An end-to-end Machine Learning and Data Engineering pipeline that ingests raw re
 
 This project solves the messy reality of physical document processing. Using the SROIE dataset, the system reads hundreds of scanned receipts, intelligently extracts the Merchant, Date, and Total Amount, and builds a robust data warehouse. Finally, it applies predictive analytics to model financial habits while actively filtering out AI hallucinations and outliers.
 
-## ✨ Key Features
+##  Key Features
 
 * **Multimodal AI OCR Pipeline:** Ingests receipt images and reads text regardless of language, rotation, or formatting without relying on rigid coordinate bounding boxes.
 * **Intelligent Information Extraction:** Uses NLP to locate the true "Total" and "Merchant" names among competing numbers and tax lines.
@@ -14,7 +14,7 @@ This project solves the messy reality of physical document processing. Using the
 * **Automated Checkpointing:** Processes large image batches safely, ensuring progress isn't lost if the script is interrupted.
 * **Predictive Forecasting:** Uses **Facebook Prophet** to map monthly spending trends and forecast future expenses with calculated confidence intervals.
 
-## 🏗 Data Architecture (Medallion Approach)
+## Data Architecture (Medallion Approach)
 
 To ensure high data quality, this project implements a Medallion Data Architecture:
 
@@ -22,7 +22,7 @@ To ensure high data quality, this project implements a Medallion Data Architectu
 * **🥈 Silver Layer (Processed):** `data/extracted_receipts.json` — The raw OCR text mapped to JSON, containing the initial AI extractions.
 * **🥇 Gold Layer (Cleaned Analytics):** `data/expenses.db` — A relational SQLite data warehouse. Here, rigorous Data Engineering logic is applied to filter out OCR hallucinations (such as scanning artifacts resulting in $55,000,000 totals) and restrict date boundaries to the verified 2016–2019 window.
 
-## 🛠 Technology Stack
+## Technology Stack
 
 * **Language:** Python
 * **Computer Vision / OCR:** EasyOCR / Multimodal AI
@@ -31,11 +31,11 @@ To ensure high data quality, this project implements a Medallion Data Architectu
 * **Machine Learning:** Facebook Prophet
 * **Data Visualization:** Matplotlib
 
-## 📈 Results & Insights
+## Results & Insights
 
 By applying strict SQL constraints on the Silver Layer data, the time-series model successfully ignores critical OCR errors. The final Prophet forecast model clearly maps out spending density between 2017 and 2018, providing tight confidence intervals without being skewed by billion-dollar outliers or multi-decade date anomalies.
 
-## 💻 How to Run (Gold Layer Analytics)
+## How to Run (Gold Layer Analytics)
 
 Because the heavy OCR process is already complete, you can query the database or run the forecasting model immediately using the provided files:
 
